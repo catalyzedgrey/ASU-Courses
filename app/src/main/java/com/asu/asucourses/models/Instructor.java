@@ -1,4 +1,4 @@
-package com.asu.asucourses;
+package com.asu.asucourses.models;
 
 public class Instructor {
     private String id;

@@ -1,6 +1,8 @@
-package com.asu.asucourses;
+package com.asu.asucourses.application;
 
-public class User {
+import android.app.Application;
+
+public class User extends Application {
     private String userId;
     private String userName;
     private String email;
