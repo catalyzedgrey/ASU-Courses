@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SignUpActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_marginTop="55dp"
+            android:textSize="22sp"
+            android:id="@+id/fullNameEditText"
+            android:hint="@string/fullNameHint"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="30dp"
+            android:textSize="22sp"
+            android:id="@+id/emailEditText"
+            android:hint="@string/EmailHint"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginTop="30dp"
+            android:textSize="22sp"
+            android:id="@+id/passwordEditText"
+            android:hint="@string/PassHint"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginTop="30dp"
+            android:textSize="22sp"
+            android:id="@+id/confirmPasswordEditText"
+            android:hint="@string/confirmPasswordHit"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_marginTop="30dp"
+            android:textSize="22sp"
+            android:id="@+id/levelEditText"
+            android:hint="@string/levelHint"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_marginTop="55dp"
+            android:textSize="22sp"
+            android:id="@+id/gpaEditText"
+            android:hint="@string/gpaHint"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:id="@+id/registerBtn"
+            android:textSize="18sp"
+            android:text="@string/registerBtn"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
