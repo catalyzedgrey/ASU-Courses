@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">asucourses</string>
+
+
+    <!--Strings for the login Activity-->
+    <string name="LoginLogo">Login</string>
+    <string name="EmailHint">Email</string>
+    <string name="PassHint">Password</string>
+    <string name="SignInBtn">Sign in</string>
+    <string name="notRegTextView">not registered yet ? sign up now</string>
+    <string name="SignUpBtn">Sign up</string>
+
 </resources>
