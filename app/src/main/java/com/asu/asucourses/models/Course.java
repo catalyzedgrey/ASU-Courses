@@ -5,15 +5,15 @@ public class Course {
     private String courseName;
     private String courseDescription;
     private float minGPA;
-    private String coueseInageUrl;
+    private String courseImageUrl;
     private Instructor instructor;
 
-    public Course(String courseId, String courseName, String courseDescription, float minGPA, String coueseInageUrl, Instructor instructor) {
+    public Course(String courseId, String courseName, String courseDescription, float minGPA, String courseImageUrl, Instructor instructor) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseDescription = courseDescription;
         this.minGPA = minGPA;
-        this.coueseInageUrl = coueseInageUrl;
+        this.courseImageUrl = courseImageUrl;
         this.instructor = instructor;
     }
 
@@ -49,12 +49,12 @@ public class Course {
         this.minGPA = minGPA;
     }
 
-    public String getCoueseInageUrl() {
-        return coueseInageUrl;
+    public String getCourseImageUrl() {
+        return courseImageUrl;
     }
 
-    public void setCoueseInageUrl(String coueseInageUrl) {
-        this.coueseInageUrl = coueseInageUrl;
+    public void setCourseImageUrl(String courseImageUrl) {
+        this.courseImageUrl = courseImageUrl;
     }
 
     public Instructor getInstructor() {

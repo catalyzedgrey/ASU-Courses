@@ -9,7 +9,7 @@ public class User extends Application {
     private String gpa;
     private String level;
 
-    public User(String userId, String name, String email, String gpa, String level) {
+    public User(String userId, String username, String email, String gpa, String level) {
         this.userId = userId;
         this.userName = userName;
         this.email = email;
