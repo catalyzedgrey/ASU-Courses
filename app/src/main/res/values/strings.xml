@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">asucourses</string>
 
-
     <!--Strings for the login Activity-->
     <string name="LoginLogo">Login</string>
     <string name="EmailHint">Email</string>
@@ -21,4 +20,7 @@
     <string name="materialsEngineeringBtn">Materials Engineering</string>
     <string name="mechatronicsEngineeringBtn">Mechatronics Engineering and Automation</string>
 
+    <!--Strings for Menu Items-->
+    <string name="menu_item_my_courses_text">My Courses</string>
+    <string name="menu_item_login_text">Login</string>
 </resources>

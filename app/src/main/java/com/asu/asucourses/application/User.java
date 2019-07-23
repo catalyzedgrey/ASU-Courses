@@ -8,6 +8,7 @@ public class User extends Application {
     private String email;
     private String gpa;
     private String level;
+    public static boolean isLogged = false;
 
     public User(String userId, String username, String email, String gpa, String level) {
         this.userId = userId;
@@ -56,4 +57,5 @@ public class User extends Application {
     public void setLevel(String level) {
         this.level = level;
     }
+
 }
