@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/login_item_menu"
+        android:icon="@drawable/ic_person"
+        android:title="@string/menu_item_login_text"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/my_courses_item_menu"
+        android:title="@string/menu_item_my_courses_text"
+        app:showAsAction="ifRoom"/>
+</menu>
