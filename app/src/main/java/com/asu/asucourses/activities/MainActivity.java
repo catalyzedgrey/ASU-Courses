@@ -24,7 +24,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
+        setButtonListeners();
+    }
 
+    private void init() {
+        all = findViewById(R.id.allBtn);
+        buildingEngineering = findViewById(R.id.buildingEngineeringBtn);
+        communicationSystemsEngineering = findViewById(R.id.communicationSystemsEngineeringBtn);
+        computerEngineering = findViewById(R.id.computerEngineeringBtn);
+        energyEngineering = findViewById(R.id.energyEngineeringBtn);
+        environmentalArchitecture = findViewById(R.id.environmentalArchitectureBtn);
+        humanities = findViewById(R.id.humanitiesBtn);
+        landscapeArchitecture = findViewById(R.id.landscapeArchitectureBtn);
+        manufacturingEngineering = findViewById(R.id.manufacturingEngineeringBtn);
+        materialsEngineering = findViewById(R.id.materialsEngineeringBtn);
+        mechatronicsEngineering = findViewById(R.id.mechatronicsEngineeringBtn);
+    }
+
+    private void setButtonListeners(){
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,20 +130,6 @@ public class MainActivity extends AppCompatActivity {
                 /*when courses list activity is done we will add the put extra here*/
             }
         });
-    }
-
-    private void init() {
-        all = findViewById(R.id.allBtn);
-        buildingEngineering = findViewById(R.id.buildingEngineeringBtn);
-        communicationSystemsEngineering = findViewById(R.id.communicationSystemsEngineeringBtn);
-        computerEngineering = findViewById(R.id.computerEngineeringBtn);
-        energyEngineering = findViewById(R.id.energyEngineeringBtn);
-        environmentalArchitecture = findViewById(R.id.environmentalArchitectureBtn);
-        humanities = findViewById(R.id.humanitiesBtn);
-        landscapeArchitecture = findViewById(R.id.landscapeArchitectureBtn);
-        manufacturingEngineering = findViewById(R.id.manufacturingEngineeringBtn);
-        materialsEngineering = findViewById(R.id.materialsEngineeringBtn);
-        mechatronicsEngineering = findViewById(R.id.mechatronicsEngineeringBtn);
     }
 
     @Override
