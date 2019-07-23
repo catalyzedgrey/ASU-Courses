@@ -9,5 +9,16 @@
     <string name="SignInBtn">Sign in</string>
     <string name="notRegTextView">not registered yet ? sign up now</string>
     <string name="SignUpBtn">Sign up</string>
+    <string name="allBtn">ALL</string>
+    <string name="buildingEngineeringBtn">Building Engineering</string>
+    <string name="communicationSystemsEngineeringBtn">Communication Systems Engineering</string>
+    <string name="computerEngineeringBtn">Computer Engineering and Software Systems</string>
+    <string name="energyEngineeringBtn">Energy and Renewable Energy Engineering</string>
+    <string name="environmentalArchitectureBtn">Environmental Architecture and Urbanism</string>
+    <string name="humanitiesBtn">Humanities</string>
+    <string name="landscapeArchitectureBtn">Landscape Architecture</string>
+    <string name="manufacturingEngineeringBtn">Manufacturing Engineering</string>
+    <string name="materialsEngineeringBtn">Materials Engineering</string>
+    <string name="mechatronicsEngineeringBtn">Mechatronics Engineering and Automation</string>
 
 </resources>
