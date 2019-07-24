@@ -1,5 +1,6 @@
 package com.asu.asucourses.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,8 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         SignUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Todo: To be implemented
-//                startActivity(LoginActivity.this,RegisterActivity.class);
+               startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
             }
         });
 
@@ -38,10 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         SignInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Todo: To be implemented
-                //validate inputs
-                //if valid , hn3ml request n verify el account
-                // savePrefData()
+                validateANDverify();
             }
         });
 
@@ -63,5 +60,15 @@ public class LoginActivity extends AppCompatActivity {
 //        editor.putFloat(USER_GPA, );
 
         editor.apply();
+    }
+
+    private void validateANDverify(){
+        // Todo: To be implemented
+        //validate inputs
+        //if valid , hn3ml request n verify el account
+        //verify student dh mowgod f database wla la
+        //low ah hn-redirect student 3la MainActivity
+        //low la loginActivity w n2olo ank msh student m3ana
+        // savePrefData()
     }
 }
