@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.models.ITrackModel;
+import com.asu.asucourses.models.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.TrackService;
 import com.asu.asucourses.utils.Constants;
@@ -38,15 +39,19 @@ public class MainActivity extends AppCompatActivity implements ITrackModel {
 
     private void prepareData() {
         new TrackService(this).execute(Constants.trackUrl);
-        // to Test the on click listeners please comment after service is active
-        // Todo: comment this when service is available
     }
 
     private void init() {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView = findViewById(R.id.RecyclerViewMainActivity);
         recyclerView.setLayoutManager(mLayoutManager);
-        trackAdapter = new TrackAdapter();
+        trackAdapter = new TrackAdapter(trackList, new OnItemClickListener() {
+            @Override
+            public void onItemClick(Track item) {
+                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
+                startActivity(i);
+            }
+        });
         recyclerView.setAdapter(trackAdapter);
     }
 
@@ -85,6 +90,14 @@ public class MainActivity extends AppCompatActivity implements ITrackModel {
     @Override
     public void onTrackServiceListener(List<Track> tracks) {
         trackAdapter.refreshTrackAdapter(tracks);
+//        Todo: Remove after the services are online
+//        To test functionality
+        Track t = new Track("1", "Computer");
+        tracks.add(t);
+        Track t1 = new Track("1", "Building");
+        tracks.add(t1);
+//----------------------------------------------------------------------
+        trackList = tracks;
 
     }
 }

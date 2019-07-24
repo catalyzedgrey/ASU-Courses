@@ -8,12 +8,22 @@ import android.view.ViewGroup;
 
 import com.asu.asucourses.itemviews.TrackItem;
 import com.asu.asucourses.R;
+import com.asu.asucourses.models.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 
 import java.util.List;
 
-public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
+public class TrackAdapter extends RecyclerView.Adapter<TrackItem> implements OnItemClickListener {
     private List<Track> tracks;
+    private OnItemClickListener listener;
+
+    public TrackAdapter(List<Track> tracks, OnItemClickListener listener) {
+        this.tracks = tracks;
+        this.listener = listener;
+    }
+
+    public TrackAdapter() {
+    }
 
     @NonNull
     @Override
@@ -24,7 +34,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
 
     @Override
     public void onBindViewHolder(@NonNull TrackItem trackItem, int i) {
-        trackItem.bindTrack(tracks.get(i));
+        trackItem.bindTrack(tracks.get(i), listener);
     }
 
     @Override
@@ -36,5 +46,10 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
     public void refreshTrackAdapter(List<Track> tracks){
         this.tracks = tracks;
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClick(Track item) {
+
     }
 }
