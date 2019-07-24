@@ -14,6 +14,7 @@ import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.models.ITrackModel;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.TrackService;
+import com.asu.asucourses.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,12 +37,9 @@ public class MainActivity extends AppCompatActivity implements ITrackModel {
     }
 
     private void prepareData() {
-        new TrackService(this).execute("http://jsonstub.com/load-tracks");
+        new TrackService(this).execute(Constants.trackUrl);
         // to Test the on click listeners please comment after service is active
         // Todo: comment this when service is available
-        Track t = new Track("1", "Building");
-        trackList.add(t);
-
     }
 
     private void init() {
