@@ -1,4 +1,4 @@
-package com.asu.asucourses.ItemView;
+package com.asu.asucourses.itemviews;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

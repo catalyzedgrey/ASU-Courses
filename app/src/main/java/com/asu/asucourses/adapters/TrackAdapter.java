@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.asu.asucourses.ItemView.TrackItem;
+import com.asu.asucourses.itemviews.TrackItem;
 import com.asu.asucourses.R;
 import com.asu.asucourses.models.Track;
 
