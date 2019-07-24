@@ -15,10 +15,6 @@ import java.util.List;
 public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
     private List<Track> tracks;
 
-    public TrackAdapter(List<Track> Tracks) {
-        this.tracks = Tracks;
-    }
-
     @NonNull
     @Override
     public TrackItem onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -33,6 +29,12 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
 
     @Override
     public int getItemCount() {
-        return tracks.size();
+        return tracks == null ? 0 : tracks.size();
+    }
+
+
+    public void refreshTrackAdapter(List<Track> tracks){
+        this.tracks = tracks;
+        notifyDataSetChanged();
     }
 }

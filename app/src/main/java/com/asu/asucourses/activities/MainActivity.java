@@ -8,14 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.asu.asucourses.ItemView.TrackItem;
 import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.TrackAdapter;
-import com.asu.asucourses.application.User;
 import com.asu.asucourses.models.ITrackModel;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.TrackService;
@@ -24,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ITrackModel {
-    private RecyclerView Recycler_view;
+    private RecyclerView recyclerView;
     private List<Track> trackList = new ArrayList<>();
     private TrackAdapter trackAdapter;
 
@@ -51,10 +46,10 @@ public class MainActivity extends AppCompatActivity implements ITrackModel {
 
     private void init() {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        Recycler_view = findViewById(R.id.RecyclerViewMainActivity);
-        Recycler_view.setLayoutManager(mLayoutManager);
-        trackAdapter = new TrackAdapter(trackList);
-        Recycler_view.setAdapter(trackAdapter);
+        recyclerView = findViewById(R.id.RecyclerViewMainActivity);
+        recyclerView.setLayoutManager(mLayoutManager);
+        trackAdapter = new TrackAdapter();
+        recyclerView.setAdapter(trackAdapter);
     }
 
 
@@ -91,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements ITrackModel {
 
     @Override
     public void onTrackServiceListener(List<Track> tracks) {
-        this.trackList = tracks;
+        trackAdapter.refreshTrackAdapter(tracks);
 
     }
 }
