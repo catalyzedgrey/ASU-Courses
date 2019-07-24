@@ -8,112 +8,120 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayoutMainActivity"
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--android:id="@+id/constraintLayoutMainActivity"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/allBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/allBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/buildingEngineeringBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/buildingEngineeringBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/allBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/communicationSystemsEngineeringBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/communicationSystemsEngineeringBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/buildingEngineeringBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/computerEngineeringBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/computerEngineeringBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/communicationSystemsEngineeringBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/energyEngineeringBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/energyEngineeringBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/computerEngineeringBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/environmentalArchitectureBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/environmentalArchitectureBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/energyEngineeringBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/humanitiesBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/humanitiesBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/environmentalArchitectureBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/landscapeArchitectureBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/landscapeArchitectureBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/humanitiesBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/manufacturingEngineeringBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/manufacturingEngineeringBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/landscapeArchitectureBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/materialsEngineeringBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/materialsEngineeringBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/manufacturingEngineeringBtn" />-->
+    <!---->
+    <!--<Button-->
+    <!--android:id="@+id/mechatronicsEngineeringBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="cursive"-->
+    <!--android:text="@string/mechatronicsEngineeringBtn"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/materialsEngineeringBtn" />-->
+    <!---->
+    <!--</android.support.constraint.ConstraintLayout> //-->
+    <!---->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RecyclerViewMainActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/allBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/allBtn"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/buildingEngineeringBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/buildingEngineeringBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/allBtn" />
-
-        <Button
-            android:id="@+id/communicationSystemsEngineeringBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/communicationSystemsEngineeringBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/buildingEngineeringBtn" />
-
-        <Button
-            android:id="@+id/computerEngineeringBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/computerEngineeringBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/communicationSystemsEngineeringBtn" />
-
-        <Button
-            android:id="@+id/energyEngineeringBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/energyEngineeringBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/computerEngineeringBtn" />
-
-        <Button
-            android:id="@+id/environmentalArchitectureBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/environmentalArchitectureBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/energyEngineeringBtn" />
-
-        <Button
-            android:id="@+id/humanitiesBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/humanitiesBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/environmentalArchitectureBtn" />
-
-        <Button
-            android:id="@+id/landscapeArchitectureBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/landscapeArchitectureBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/humanitiesBtn" />
-
-        <Button
-            android:id="@+id/manufacturingEngineeringBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/manufacturingEngineeringBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/landscapeArchitectureBtn" />
-
-        <Button
-            android:id="@+id/materialsEngineeringBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/materialsEngineeringBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/manufacturingEngineeringBtn" />
-
-        <Button
-            android:id="@+id/mechatronicsEngineeringBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="@string/mechatronicsEngineeringBtn"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/materialsEngineeringBtn" />
-
-    </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.RecyclerView>
 
 </ScrollView>

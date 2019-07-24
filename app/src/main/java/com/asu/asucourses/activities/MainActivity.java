@@ -3,19 +3,30 @@ package com.asu.asucourses.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.asu.asucourses.ItemView.TrackItem;
 import com.asu.asucourses.R;
+import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.application.User;
+import com.asu.asucourses.models.ITrackModel;
+import com.asu.asucourses.models.Track;
+import com.asu.asucourses.services.TrackService;
 
-public class MainActivity extends AppCompatActivity {
-    Button all, buildingEngineering, communicationSystemsEngineering, computerEngineering, energyEngineering, environmentalArchitecture,
-            humanities, landscapeArchitecture, manufacturingEngineering, materialsEngineering, mechatronicsEngineering;
+import java.util.ArrayList;
+import java.util.List;
 
+public class MainActivity extends AppCompatActivity implements ITrackModel {
+    private RecyclerView Recycler_view;
+    private List<Track> trackList = new ArrayList<>();
+    private TrackAdapter trackAdapter;
 
 
     @Override
@@ -23,114 +34,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        prepareData();
         init();
-        setButtonListeners();
+        //Todo: add on-click Listeners for items
+
+    }
+
+    private void prepareData() {
+        new TrackService(this).execute("http://jsonstub.com/load-tracks");
+        // to Test the on click listeners please comment after service is active
+        // Todo: comment this when service is available
+        Track t = new Track("1", "Building");
+        trackList.add(t);
+
     }
 
     private void init() {
-        all = findViewById(R.id.allBtn);
-        buildingEngineering = findViewById(R.id.buildingEngineeringBtn);
-        communicationSystemsEngineering = findViewById(R.id.communicationSystemsEngineeringBtn);
-        computerEngineering = findViewById(R.id.computerEngineeringBtn);
-        energyEngineering = findViewById(R.id.energyEngineeringBtn);
-        environmentalArchitecture = findViewById(R.id.environmentalArchitectureBtn);
-        humanities = findViewById(R.id.humanitiesBtn);
-        landscapeArchitecture = findViewById(R.id.landscapeArchitectureBtn);
-        manufacturingEngineering = findViewById(R.id.manufacturingEngineeringBtn);
-        materialsEngineering = findViewById(R.id.materialsEngineeringBtn);
-        mechatronicsEngineering = findViewById(R.id.mechatronicsEngineeringBtn);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        Recycler_view = findViewById(R.id.RecyclerViewMainActivity);
+        Recycler_view.setLayoutManager(mLayoutManager);
+        trackAdapter = new TrackAdapter(trackList);
+        Recycler_view.setAdapter(trackAdapter);
     }
 
-    private void setButtonListeners(){
-        all.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        buildingEngineering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        communicationSystemsEngineering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        computerEngineering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        energyEngineering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        environmentalArchitecture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        humanities.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        landscapeArchitecture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        manufacturingEngineering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        materialsEngineering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-        mechatronicsEngineering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-                /*when courses list activity is done we will add the put extra here*/
-            }
-        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -149,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.login_item_menu:
                 intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
@@ -161,5 +87,11 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onTrackServiceListener(List<Track> tracks) {
+        this.trackList = tracks;
+
     }
 }
