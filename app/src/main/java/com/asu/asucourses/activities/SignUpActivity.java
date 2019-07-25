@@ -91,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity {
         float GPA=Float.valueOf(gpa);
         if(LEVEL>=0&&LEVEL<=4){
             if(GPA>=0&&GPA<=4){
-                if(password.matches("[a-zA-Z.\\-_*&^%$@]+[0-9]+[.\\-_*&^%$@]+[a-zA-z]*")&&password.length()>6){
+                if(password.matches("[a-zA-Z.\\-_*&^%$@]*[0-9.\\-_*&^%$@]+[a-zA-Z.\\-_*&^%$@]*[0-9.\\-_*&^%$@]+[a-zA-Z.\\-_*&^%$@]*")&&password.length()>6){
                     if(password.equals(confirmPassword)){
                         return true;
                     }else {
