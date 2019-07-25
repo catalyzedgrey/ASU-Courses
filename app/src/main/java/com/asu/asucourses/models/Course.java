@@ -1,11 +1,22 @@
 package com.asu.asucourses.models;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class Course {
+
+    @SerializedName("id")
     private String courseId;
+    @SerializedName("name")
     private String courseName;
+    @SerializedName("desc")
     private String courseDescription;
+    @SerializedName("min_gpa")
     private float minGPA;
+    @SerializedName("image_url")
     private String courseImageUrl;
+    @SerializedName("instructor")
     private Instructor instructor;
 
     public Course(String courseId, String courseName, String courseDescription, float minGPA, String courseImageUrl, Instructor instructor) {

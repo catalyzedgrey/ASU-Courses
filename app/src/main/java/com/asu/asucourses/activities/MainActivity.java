@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.TrackAdapter;
-import com.asu.asucourses.models.ITrackModel;
+import com.asu.asucourses.models.IService;
 import com.asu.asucourses.models.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.TrackService;
@@ -20,7 +20,7 @@ import com.asu.asucourses.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ITrackModel {
+public class MainActivity extends AppCompatActivity implements IService {
     private RecyclerView recyclerView;
     private List<Track> trackList = new ArrayList<>();
     private TrackAdapter trackAdapter;
@@ -79,25 +79,31 @@ public class MainActivity extends AppCompatActivity implements ITrackModel {
                 startActivity(intent);
                 return true;
             case R.id.my_courses_item_menu:
-                intent = new Intent(this, CoursesListActivity.class);
-                startActivity(intent);
-                return true;
+//                intent = new Intent(this, CoursesListActivity.class);
+//                startActivity(intent);
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    @Override
-    public void onTrackServiceListener(List<Track> tracks) {
-        trackAdapter.refreshTrackAdapter(tracks);
-//        Todo: Remove after the services are online
-//        To test functionality
-        Track t = new Track("1", "Computer");
-        tracks.add(t);
-        Track t1 = new Track("1", "Building");
-        tracks.add(t1);
-//----------------------------------------------------------------------
-        trackList = tracks;
+//    @Override
+//    public void onTrackServiceListener(List<Track> tracks) {
+//        trackAdapter.refreshTrackAdapter(tracks);
+////        Todo: Remove after the services are online
+////        To test functionality
+//        Track t = new Track("1", "Computer");
+//        tracks.add(t);
+//        Track t1 = new Track("1", "Building");
+//        tracks.add(t1);
+////----------------------------------------------------------------------
+//        trackList = tracks;
+//
+//    }
 
+    @Override
+    public void onTaskCompleted(List objects) {
+        trackList = (List<Track>) objects;
+        trackAdapter.refreshTrackAdapter(trackList);
     }
 }

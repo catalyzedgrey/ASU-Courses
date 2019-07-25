@@ -2,13 +2,11 @@ package com.asu.asucourses.services;
 
 import android.os.AsyncTask;
 
+import com.asu.asucourses.models.Course;
 import com.asu.asucourses.models.IService;
 import com.asu.asucourses.models.NetworkResult;
-import com.asu.asucourses.models.Track;
-import com.asu.asucourses.models.TrackResult;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,19 +18,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrackService extends AsyncTask<String, Void, List<Track>> {
+public class CoursesService extends AsyncTask<String, Void, List<Course>> {
 
     private IService iService;
 
-    public TrackService(IService iService) {
+    public CoursesService(IService iService) {
         this.iService = iService;
     }
 
     @Override
-    protected List<Track> doInBackground(String... strings) {
+    protected List<Course> doInBackground(String... strings) {
         URL url;
         HttpURLConnection urlConnection = null;
-        List<Track> tracks = new ArrayList<>();
+        List<Course> courses = new ArrayList<>();
         try {
 //            int x = 10;
             url = new URL(strings[0]);
@@ -54,7 +52,7 @@ public class TrackService extends AsyncTask<String, Void, List<Track>> {
                 Gson gson = new Gson();
                 Type type = new TypeToken<NetworkResult>() {}.getType();
                 NetworkResult networkResult = (NetworkResult) gson.fromJson(responseString, type);
-                tracks = networkResult.getTrackList();
+                courses = networkResult.getCourseList();
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -64,13 +62,13 @@ public class TrackService extends AsyncTask<String, Void, List<Track>> {
             }
         }
 
-        return tracks;
+        return courses;
     }
 
     @Override
-    protected void onPostExecute(List<Track> tracks) {
-        super.onPostExecute(tracks);
-        iService.onTaskCompleted(tracks);
+    protected void onPostExecute(List<Course> courses) {
+        super.onPostExecute(courses);
+        iService.onTaskCompleted(courses);
     }
 
     private String readStream(InputStream in) {
