@@ -6,8 +6,7 @@
     <string name="EmailHint">Email</string>
     <string name="PassHint">Password</string>
     <string name="SignInBtn">Sign in</string>
-    <string name="notRegTextView">not registered yet ? sign up now</string>
-    <string name="SignUpBtn">Sign up</string>
+    <string name="notRegTextView">not registered yet ? <u>sign up</u> now.</string>
 
     <!--Strings for the sign up Activity-->
     <string name="fullNameHint">Full Name</string>

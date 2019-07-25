@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.asu.asucourses.R;
 
@@ -37,5 +38,77 @@ public class SignUpActivity extends AppCompatActivity {
     private void validate(){
         // validate data
         //if valid n add student el mfrod f database
+
+        String fullName=fullNameEditText.getText().toString();
+        String email=emailEditText.getText().toString();
+        String password=passwordEditText.getText().toString();
+        String confirmPassword=confirmPasswordEditText.getText().toString();
+        String level=levelEditText.getText().toString();
+        String gpa=gpaEditText.getText().toString();
+
+        if(!checkEmpty(fullName,email,password,confirmPassword,level,gpa)){
+            if(validateANDverify(password,confirmPassword,level,gpa)){
+                //Todo: nshof email dh mwgod f database wla la
+            }
+        }
+
+    }
+
+
+    private boolean checkEmpty(String fullName,String email,String password,String confirmPassword,String level,String gpa){
+        if(fullName.isEmpty()){
+            Toast.makeText(SignUpActivity.this,"u must enter ur full name !",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(email.isEmpty()){
+            Toast.makeText(SignUpActivity.this,"u must enter ur email !",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(password.isEmpty()){
+            Toast.makeText(SignUpActivity.this,"u must enter ur password !",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(confirmPassword.isEmpty()){
+            Toast.makeText(SignUpActivity.this,"u must confirm ur password !",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(level.isEmpty()){
+            Toast.makeText(SignUpActivity.this,"u must enter ur level !",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(gpa.isEmpty()){
+            Toast.makeText(SignUpActivity.this,"u must enter ur gpa !",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return false;
+    }
+
+
+
+
+    private boolean validateANDverify(String password,String confirmPassword,String level,String gpa){
+        int LEVEL=Integer.valueOf(level);
+        float GPA=Float.valueOf(gpa);
+        if(LEVEL>=0&&LEVEL<=4){
+            if(GPA>=0&&GPA<=4){
+                if(password.matches("[a-zA-Z.\\-_*&^%$@]+[0-9]+[.\\-_*&^%$@]+[a-zA-z]*")&&password.length()>6){
+                    if(password.equals(confirmPassword)){
+                        return true;
+                    }else {
+                        Toast.makeText(SignUpActivity.this,"ur password must match ur confirm password",Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                }else {
+                    Toast.makeText(SignUpActivity.this,"ur password must have at least on special character & number & have size of 6 characters",Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            }else{
+                Toast.makeText(SignUpActivity.this,"ur gpa must be in range 0 to 4",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }else{
+            Toast.makeText(SignUpActivity.this,"ur level must be in range 0 to 4",Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 }

@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.asu.asucourses.R;
 
 public class LoginActivity extends AppCompatActivity {
     EditText EmailEditText,PasswordEditText;
-    Button SignInBtn,SignUpBtn;
-
+    Button SignInBtn;
+    TextView SignUpTextView;
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String USER_ID = "userId";
     public static final String USER_GPA = "gpa";
@@ -27,14 +28,12 @@ public class LoginActivity extends AppCompatActivity {
         init();
 
 
-        SignUpBtn.setOnClickListener(new View.OnClickListener() {
+        SignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
             }
         });
-
-
         SignInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         EmailEditText=findViewById(R.id.EmailEditText);
         PasswordEditText=findViewById(R.id.PasswordEditText);
         SignInBtn=findViewById(R.id.SignInBtn);
-        SignUpBtn=findViewById(R.id.SignUpBtn);
+        SignUpTextView=findViewById(R.id.signUpTextView);
     }
 
     private void savePrefData(){

@@ -47,18 +47,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="55dp"
-            android:textSize="18sp"
+            android:textSize="19sp"
             android:textAlignment="center"
-            android:text="@string/notRegTextView"/>
-        <Button
-            android:textSize="18sp"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/SignUpBtn"
-            android:id="@+id/SignUpBtn"
-            />
+            android:text="@string/notRegTextView"
+            android:id="@+id/signUpTextView"/>
+
     </LinearLayout>
 
 </ScrollView>
