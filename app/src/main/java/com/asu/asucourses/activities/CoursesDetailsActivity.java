@@ -1,5 +1,6 @@
 package com.asu.asucourses.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import com.asu.asucourses.R;
 import com.asu.asucourses.application.User;
 import com.asu.asucourses.models.Course;
+import com.asu.asucourses.models.Instructor;
+import com.asu.asucourses.utils.Constants;
 import com.bumptech.glide.Glide;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -23,11 +26,20 @@ public class CoursesDetailsActivity extends AppCompatActivity {
     TextView courseDetails;
     TextView minGPA;
     Button enroll;
+    View instructorView;
+
+    Course course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_details);
+
+        initViews();
+        this.course = getCourseDetails();
+    }
+
+    private void initViews(){
         courseImage = findViewById(R.id.CourseImage);
         instructorImage = findViewById(R.id.InstructorImage);
         courseTitle = findViewById(R.id.CourseTitletextView);
@@ -35,6 +47,25 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         courseDetails = findViewById(R.id.CourseDetailsTextView);
         minGPA = findViewById(R.id.minGPA);
         enroll = findViewById(R.id.enrollBtn);
+
+        instructorView = findViewById(R.id.InstructorView);
+        instructorView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CoursesDetailsActivity.this, InstructorDetailsActivity.class);
+
+                //Todo uncomment when the course details get passed correctly
+                //String instructorJson = Constants.serializeInstructorToJson(course.getInstructor());
+
+                Instructor instructor = new Instructor("1", "Jane Smith", "https://www.virversity.com/images/dowell/courses/createacourse/oc/courseintroimage.jpg",
+                "test@test.com", "Professor");
+                String instructorJson = Constants.serializeInstructorToJson(instructor);
+
+                i.putExtra("instructorJson", instructorJson);
+                startActivity(i);
+            }
+        });
+
         enroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +74,13 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         });
         //test
         setParameters(courseImage,instructorImage,courseTitle,instructorName,courseDetails);
+
+
+    }
+
+    //Returns a course object from json string
+    private Course getCourseDetails(){
+        return Constants.deserializeCourseFromJson(getIntent().getStringExtra("courseJson"));
     }
 
     //Check users eligibility to enroll to course

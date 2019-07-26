@@ -10,13 +10,14 @@ import com.asu.asucourses.R;
 import com.asu.asucourses.activities.CoursesDetailsActivity;
 import com.asu.asucourses.activities.CoursesListActivity;
 import com.asu.asucourses.models.Course;
+import com.asu.asucourses.utils.Constants;
 //import com.asu.asucourses.interfaces.OnItemClickListener;
 
 
 public class CourseItem extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private TextView title;
-
+    Course course;
 
     public CourseItem(@NonNull View itemView) {
         super(itemView);
@@ -34,14 +35,16 @@ public class CourseItem extends RecyclerView.ViewHolder implements View.OnClickL
 //        });
 //    }
     public void bindCourse(final Course course) {
+        this.course = course;
         title.setText(course.getCourseName());
 
     }
 
     @Override
     public void onClick(View v) {
-        //Todo uncomment this when CourseDetailsActivity is ready
         Intent i = new Intent(v.getContext(), CoursesDetailsActivity.class);
+        //Send course details to CoursesDetailsActivity
+
         v.getContext().startActivity(i);
     }
 }
