@@ -24,10 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements IService {
     private RecyclerView recyclerView;
-    private List<Track> trackList = new ArrayList<>();
     private TrackAdapter trackAdapter;
-    private List<Course> courseList = new ArrayList<>();
-    private CourseAdapter courseAdapter;
 
 
     @Override
@@ -49,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements IService {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView = findViewById(R.id.RecyclerViewMainActivity);
         recyclerView.setLayoutManager(mLayoutManager);
-        trackAdapter = new TrackAdapter(trackList, new OnItemClickListener() {
+        trackAdapter = new TrackAdapter(new OnItemClickListener() {
             @Override
             public void onTrackClick(Track item) {
                 Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
@@ -57,8 +54,9 @@ public class MainActivity extends AppCompatActivity implements IService {
             }
             @Override
             public void onCourseClick(Course item) {
-                Intent i = new Intent(CoursesListActivity.class, CourseDetails.class);//open course details
-                startActivity(i);
+                //Todo uncomment when CourseDetailsActivity is up and running
+//                Intent i = new Intent(CoursesListActivity.class, CourseDetails.class);//open course details
+//                startActivity(i);
             }
         });
         recyclerView.setAdapter(trackAdapter);
@@ -96,25 +94,9 @@ public class MainActivity extends AppCompatActivity implements IService {
         }
     }
 
-//    @Override
-//    public void onTrackServiceListener(List<Track> tracks) {
-//        trackAdapter.refreshTrackAdapter(tracks);
-////        Todo: Remove after the services are online
-////        To test functionality
-//        Track t = new Track("1", "Computer");
-//        tracks.add(t);
-//        Track t1 = new Track("1", "Building");
-//        tracks.add(t1);
-////----------------------------------------------------------------------
-//        trackList = tracks;
-//
-//    }
 
     @Override
     public void onTaskCompleted(List objects) {
-        trackList = (List<Track>) objects;
-        trackAdapter.refreshTrackAdapter(trackList);
-        courseList = (List<Course>) objects;
-        courseAdapter.refreshCourseAdapter(courseList);
+        trackAdapter.refreshTrackAdapter(objects);
     }
 }

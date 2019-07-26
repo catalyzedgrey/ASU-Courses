@@ -18,8 +18,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> implements OnI
     private List<Track> tracks;
     private OnItemClickListener listener;
 
-    public TrackAdapter(List<Track> tracks, OnItemClickListener listener) {
-        this.tracks = tracks;
+    public TrackAdapter(OnItemClickListener listener) {
         this.listener = listener;
     }
 
