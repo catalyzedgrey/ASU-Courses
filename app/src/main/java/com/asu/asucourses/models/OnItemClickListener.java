@@ -1,5 +1,6 @@
 package com.asu.asucourses.models;
 
 public interface OnItemClickListener {
-    void onItemClick(Track item);
+    void onCourseClick(Course item);
+    void onTrackClick(Track item);
 }

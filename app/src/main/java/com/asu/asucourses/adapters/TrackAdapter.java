@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.asu.asucourses.itemviews.TrackItem;
 import com.asu.asucourses.R;
+import com.asu.asucourses.models.Course;
 import com.asu.asucourses.models.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 
@@ -49,7 +50,11 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> implements OnI
     }
 
     @Override
-    public void onItemClick(Track item) {
+    public void onCourseClick(Course item) {
 
+    }
+    @Override
+    public void onTrackClick(Track item) {
+        //open Track details
     }
 }

@@ -10,7 +10,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.asu.asucourses.R;
+import com.asu.asucourses.adapters.CourseAdapter;
 import com.asu.asucourses.adapters.TrackAdapter;
+import com.asu.asucourses.models.Course;
 import com.asu.asucourses.models.IService;
 import com.asu.asucourses.models.OnItemClickListener;
 import com.asu.asucourses.models.Track;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements IService {
     private RecyclerView recyclerView;
     private List<Track> trackList = new ArrayList<>();
     private TrackAdapter trackAdapter;
+    private List<Course> courseList = new ArrayList<>();
+    private CourseAdapter courseAdapter;
 
 
     @Override
@@ -47,8 +51,13 @@ public class MainActivity extends AppCompatActivity implements IService {
         recyclerView.setLayoutManager(mLayoutManager);
         trackAdapter = new TrackAdapter(trackList, new OnItemClickListener() {
             @Override
-            public void onItemClick(Track item) {
+            public void onTrackClick(Track item) {
                 Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
+                startActivity(i);
+            }
+            @Override
+            public void onCourseClick(Course item) {
+                Intent i = new Intent(CoursesListActivity.class, CourseDetails.class);//open course details
                 startActivity(i);
             }
         });
@@ -105,5 +114,7 @@ public class MainActivity extends AppCompatActivity implements IService {
     public void onTaskCompleted(List objects) {
         trackList = (List<Track>) objects;
         trackAdapter.refreshTrackAdapter(trackList);
+        courseList = (List<Course>) objects;
+        courseAdapter.refreshCourseAdapter(courseList);
     }
 }
