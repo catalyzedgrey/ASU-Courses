@@ -6,9 +6,9 @@ import java.util.List;
 
 public class NetworkResult {
     @SerializedName("tracks")
-    List<Track> trackList;
+    private List<Track> trackList;
     @SerializedName("courses")
-    List<Course> courseList;
+    private List<Course> courseList;
 
     public NetworkResult(){
     }
