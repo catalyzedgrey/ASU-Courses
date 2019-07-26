@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.models.Course;
-import com.asu.asucourses.models.OnItemClickListener;
+import com.asu.asucourses.interfaces.OnItemClickListener;
 
 
 public class CourseItem extends RecyclerView.ViewHolder {

@@ -1,4 +1,4 @@
-package com.asu.asucourses.models;
+package com.asu.asucourses.interfaces;
 
 import java.util.List;
 

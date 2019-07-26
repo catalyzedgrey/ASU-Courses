@@ -2,10 +2,9 @@ package com.asu.asucourses.services;
 
 import android.os.AsyncTask;
 
-import com.asu.asucourses.models.IService;
+import com.asu.asucourses.interfaces.IService;
 import com.asu.asucourses.models.NetworkResult;
 import com.asu.asucourses.models.Track;
-import com.asu.asucourses.models.TrackResult;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

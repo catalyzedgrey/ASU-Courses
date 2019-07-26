@@ -8,12 +8,10 @@ import android.support.v7.widget.RecyclerView;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.CourseAdapter;
-import com.asu.asucourses.models.Course;
-import com.asu.asucourses.models.IService;
+import com.asu.asucourses.interfaces.IService;
 import com.asu.asucourses.services.CoursesService;
 import com.asu.asucourses.utils.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CoursesListActivity extends AppCompatActivity implements IService {

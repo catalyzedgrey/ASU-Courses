@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.asu.asucourses.R;
 import com.asu.asucourses.models.Course;
 import com.asu.asucourses.itemviews.CourseItem;
-import com.asu.asucourses.models.OnItemClickListener;
+import com.asu.asucourses.interfaces.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 
 import java.util.List;

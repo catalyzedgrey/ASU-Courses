@@ -1,13 +1,12 @@
 package com.asu.asucourses.itemviews;
 
-import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.asu.asucourses.R;
-import com.asu.asucourses.models.OnItemClickListener;
+import com.asu.asucourses.interfaces.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 
 public class TrackItem extends RecyclerView.ViewHolder {

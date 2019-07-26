@@ -10,16 +10,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.asu.asucourses.R;
-import com.asu.asucourses.adapters.CourseAdapter;
 import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.models.Course;
-import com.asu.asucourses.models.IService;
-import com.asu.asucourses.models.OnItemClickListener;
+import com.asu.asucourses.interfaces.IService;
+import com.asu.asucourses.interfaces.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.TrackService;
 import com.asu.asucourses.utils.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements IService {
@@ -93,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements IService {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
     @Override
     public void onTaskCompleted(List objects) {

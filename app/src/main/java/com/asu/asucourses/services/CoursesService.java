@@ -3,7 +3,7 @@ package com.asu.asucourses.services;
 import android.os.AsyncTask;
 
 import com.asu.asucourses.models.Course;
-import com.asu.asucourses.models.IService;
+import com.asu.asucourses.interfaces.IService;
 import com.asu.asucourses.models.NetworkResult;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
