@@ -1,29 +1,33 @@
 package com.asu.asucourses.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.TrackAdapter;
-import com.asu.asucourses.models.Course;
 import com.asu.asucourses.interfaces.IService;
-//import com.asu.asucourses.interfaces.OnItemClickListener;
+import com.asu.asucourses.models.Course;
+import com.asu.asucourses.models.Instructor;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.TrackService;
 import com.asu.asucourses.utils.Constants;
 
+import java.util.ArrayList;
 import java.util.List;
+
+//import com.asu.asucourses.interfaces.OnItemClickListener;
 
 public class MainActivity extends AppCompatActivity implements IService {
     private RecyclerView recyclerView;
     private TrackAdapter trackAdapter;
+    private ArrayList<Course> courses = new ArrayList<>();
+    private ArrayList<Track> tracks = new ArrayList<>();
 
 
     @Override
@@ -39,28 +43,21 @@ public class MainActivity extends AppCompatActivity implements IService {
 
     private void prepareData() {
         new TrackService(this).execute(Constants.trackUrl);
+        Course c = new Course("1", "Physics", "M", (float) 2.0, "5",
+                new Instructor("1", "Jhon", "k", "as", "asas"));
+        courses.add(c);
+        courses.add(c);
+        Track t = new Track("Computer", courses);
+        tracks.add(t);
     }
 
     private void init() {
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView = findViewById(R.id.RecyclerViewMainActivity);
         recyclerView.setLayoutManager(mLayoutManager);
         trackAdapter = new TrackAdapter();
-//        trackAdapter = new TrackAdapter(new OnItemClickListener() {
-//            @Override
-//            public void onTrackClick(Track item) {
-//
-//
-//            }
-//            @Override
-//            public void onCourseClick(Course item) {
-//                Toast.makeText(MainActivity.this, "anything", Toast.LENGTH_LONG).show();
-//                //Todo uncomment when CourseDetailsActivity is up and running
-////                Intent i = new Intent(CoursesListActivity.class, CourseDetails.class);//open course details
-////                startActivity(i);
-//            }
-//        });
-        recyclerView.setAdapter(trackAdapter);
+        ExpandableAdapter adapter = new ExpandableAdapter(tracks);
+        recyclerView.setAdapter(adapter);
     }
 
 
