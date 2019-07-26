@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ASU-Courses.iml" filepath="$PROJECT_DIR$/ASU-Courses.iml" />
       <module fileurl="file://$PROJECT_DIR$/ASU-Courses-new.iml" filepath="$PROJECT_DIR$/ASU-Courses-new.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

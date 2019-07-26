@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.asu.asucourses.R;
+import com.asu.asucourses.activities.CoursesDetailsActivity;
 import com.asu.asucourses.activities.CoursesListActivity;
 import com.asu.asucourses.models.Course;
 //import com.asu.asucourses.interfaces.OnItemClickListener;
@@ -40,7 +41,7 @@ public class CourseItem extends RecyclerView.ViewHolder implements View.OnClickL
     @Override
     public void onClick(View v) {
         //Todo uncomment this when CourseDetailsActivity is ready
-//        Intent i = new Intent(v.getContext(), CourseDetailsActivity.class);
-//        v.getContext().startActivity(i);
+        Intent i = new Intent(v.getContext(), CoursesDetailsActivity.class);
+        v.getContext().startActivity(i);
     }
 }
