@@ -1,4 +1,4 @@
-package com.asu.asucourses.activities;
+package com.asu.asucourses.ViewHolders;
 
 import android.view.View;
 import android.widget.TextView;

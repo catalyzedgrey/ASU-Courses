@@ -1,10 +1,12 @@
-package com.asu.asucourses.activities;
+package com.asu.asucourses.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.asu.asucourses.R;
+import com.asu.asucourses.ViewHolders.CourseViewHolder;
+import com.asu.asucourses.ViewHolders.TrackViewHolder;
 import com.asu.asucourses.models.Course;
 import com.asu.asucourses.models.Track;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;

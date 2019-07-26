@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.asu.asucourses.R;
+import com.asu.asucourses.adapters.ExpandableAdapter;
 import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.interfaces.IService;
 import com.asu.asucourses.models.Course;
@@ -55,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements IService {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView = findViewById(R.id.RecyclerViewMainActivity);
         recyclerView.setLayoutManager(mLayoutManager);
-        trackAdapter = new TrackAdapter();
         ExpandableAdapter adapter = new ExpandableAdapter(tracks);
         recyclerView.setAdapter(adapter);
     }
@@ -94,6 +94,6 @@ public class MainActivity extends AppCompatActivity implements IService {
 
     @Override
     public void onTaskCompleted(List objects) {
-        trackAdapter.refreshTrackAdapter(objects);
+
     }
 }
