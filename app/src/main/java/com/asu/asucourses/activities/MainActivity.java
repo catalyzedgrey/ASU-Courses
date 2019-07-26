@@ -8,12 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.models.Course;
 import com.asu.asucourses.interfaces.IService;
-import com.asu.asucourses.interfaces.OnItemClickListener;
+//import com.asu.asucourses.interfaces.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.TrackService;
 import com.asu.asucourses.utils.Constants;
@@ -44,19 +45,21 @@ public class MainActivity extends AppCompatActivity implements IService {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView = findViewById(R.id.RecyclerViewMainActivity);
         recyclerView.setLayoutManager(mLayoutManager);
-        trackAdapter = new TrackAdapter(new OnItemClickListener() {
-            @Override
-            public void onTrackClick(Track item) {
-                Intent i = new Intent(MainActivity.this, CoursesListActivity.class);
-                startActivity(i);
-            }
-            @Override
-            public void onCourseClick(Course item) {
-                //Todo uncomment when CourseDetailsActivity is up and running
-//                Intent i = new Intent(CoursesListActivity.class, CourseDetails.class);//open course details
-//                startActivity(i);
-            }
-        });
+        trackAdapter = new TrackAdapter();
+//        trackAdapter = new TrackAdapter(new OnItemClickListener() {
+//            @Override
+//            public void onTrackClick(Track item) {
+//
+//
+//            }
+//            @Override
+//            public void onCourseClick(Course item) {
+//                Toast.makeText(MainActivity.this, "anything", Toast.LENGTH_LONG).show();
+//                //Todo uncomment when CourseDetailsActivity is up and running
+////                Intent i = new Intent(CoursesListActivity.class, CourseDetails.class);//open course details
+////                startActivity(i);
+//            }
+//        });
         recyclerView.setAdapter(trackAdapter);
     }
 

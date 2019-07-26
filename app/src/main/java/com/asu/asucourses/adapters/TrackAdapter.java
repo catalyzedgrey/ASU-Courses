@@ -9,18 +9,18 @@ import android.view.ViewGroup;
 import com.asu.asucourses.itemviews.TrackItem;
 import com.asu.asucourses.R;
 import com.asu.asucourses.models.Course;
-import com.asu.asucourses.interfaces.OnItemClickListener;
+//import com.asu.asucourses.interfaces.OnItemClickListener;
 import com.asu.asucourses.models.Track;
 
 import java.util.List;
 
-public class TrackAdapter extends RecyclerView.Adapter<TrackItem> implements OnItemClickListener {
+public class TrackAdapter extends RecyclerView.Adapter<TrackItem>  {
     private List<Track> tracks;
-    private OnItemClickListener listener;
+//    private OnItemClickListener listener;
 
-    public TrackAdapter(OnItemClickListener listener) {
-        this.listener = listener;
-    }
+//    public TrackAdapter(OnItemClickListener listener) {
+//        this.listener = listener;
+//    }
 
     public TrackAdapter() {
     }
@@ -34,7 +34,8 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> implements OnI
 
     @Override
     public void onBindViewHolder(@NonNull TrackItem trackItem, int i) {
-        trackItem.bindTrack(tracks.get(i), listener);
+//        trackItem.bindTrack(tracks.get(i), listener);
+        trackItem.bindTrack(tracks.get(i));
     }
 
     @Override
@@ -48,12 +49,4 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> implements OnI
         notifyDataSetChanged();
     }
 
-    @Override
-    public void onCourseClick(Course item) {
-
-    }
-    @Override
-    public void onTrackClick(Track item) {
-        //open Track details
-    }
 }

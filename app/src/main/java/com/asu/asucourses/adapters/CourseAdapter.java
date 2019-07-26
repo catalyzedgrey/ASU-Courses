@@ -9,19 +9,17 @@ import android.view.ViewGroup;
 import com.asu.asucourses.R;
 import com.asu.asucourses.models.Course;
 import com.asu.asucourses.itemviews.CourseItem;
-import com.asu.asucourses.interfaces.OnItemClickListener;
-import com.asu.asucourses.models.Track;
+//import com.asu.asucourses.interfaces.OnItemClickListener;
 
 import java.util.List;
 
-public class CourseAdapter  extends RecyclerView.Adapter<CourseItem> implements OnItemClickListener {
+public class CourseAdapter  extends RecyclerView.Adapter<CourseItem>  {
     private List<Course> courses;
-    private OnItemClickListener listener;
+//    private OnItemClickListener listener;
 
-    public CourseAdapter(List<Course> courses, OnItemClickListener listener) {
-        this.courses = courses;
-        this.listener = listener;
-    }
+//    public CourseAdapter(OnItemClickListener listener) {
+//        this.listener = listener;
+//    }
 
     public CourseAdapter() {
     }
@@ -35,7 +33,8 @@ public class CourseAdapter  extends RecyclerView.Adapter<CourseItem> implements 
 
     @Override
     public void onBindViewHolder(@NonNull CourseItem courseItem, int i) {
-        courseItem.bindTrack(courses.get(i), listener);
+//        courseItem.bindCourse(courses.get(i), listener);
+        courseItem.bindCourse(courses.get(i));
     }
 
     @Override
@@ -49,12 +48,4 @@ public class CourseAdapter  extends RecyclerView.Adapter<CourseItem> implements 
         notifyDataSetChanged();
     }
 
-    @Override
-    public void onCourseClick(Course item) {
-       //open course details
-    }
-    @Override
-    public void onTrackClick(Track item) {
-        //open course details
-    }
 }
