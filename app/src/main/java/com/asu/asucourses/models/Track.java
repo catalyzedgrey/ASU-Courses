@@ -1,26 +1,33 @@
 package com.asu.asucourses.models;
 
+import com.bignerdranch.expandablerecyclerview.model.Parent;
 import com.google.gson.annotations.SerializedName;
-import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
-public class Track extends ExpandableGroup<Course> {
+public class Track implements Parent<Course> {
 
     @SerializedName("id")
     private String trackId;
     @SerializedName("name")
     private String trackName;
 
-    public Track(String trackId, String title, List<Course> items) {
-        super(title, items);
+    private List<Course> courses;
+
+    public Track(String trackId, String trackName, List<Course> courses) {
         this.trackId = trackId;
-        this.trackName = title;
+        this.trackName = trackName;
+        this.courses = courses;
     }
 
-    public Track(String title, List<Course> items) {
-        super(title, items);
-        trackName = title;
+    @Override
+    public List<Course> getChildList() {
+        return courses;
+    }
+
+    @Override
+    public boolean isInitiallyExpanded() {
+        return false;
     }
 
     public String getTrackId() {

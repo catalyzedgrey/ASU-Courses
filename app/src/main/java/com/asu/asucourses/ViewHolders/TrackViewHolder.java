@@ -5,9 +5,9 @@ import android.widget.TextView;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.models.Track;
-import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
+import com.bignerdranch.expandablerecyclerview.ParentViewHolder;
 
-public class TrackViewHolder extends GroupViewHolder {
+public class TrackViewHolder extends ParentViewHolder {
     private TextView trackTitle;
 
     public TrackViewHolder(View itemView) {

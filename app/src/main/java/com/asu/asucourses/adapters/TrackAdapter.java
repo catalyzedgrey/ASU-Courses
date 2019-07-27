@@ -6,15 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.asu.asucourses.itemviews.TrackItem;
 import com.asu.asucourses.R;
-import com.asu.asucourses.models.Course;
-//import com.asu.asucourses.interfaces.OnItemClickListener;
+import com.asu.asucourses.itemviews.TrackItem;
 import com.asu.asucourses.models.Track;
 
 import java.util.List;
 
-public class TrackAdapter extends RecyclerView.Adapter<TrackItem>  {
+//import com.asu.asucourses.interfaces.OnItemClickListener;
+
+public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
     private List<Track> tracks;
 //    private OnItemClickListener listener;
 
@@ -44,7 +44,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem>  {
     }
 
 
-    public void refreshTrackAdapter(List<Track> tracks){
+    public void refreshTrackAdapter(List<Track> tracks) {
         this.tracks = tracks;
         notifyDataSetChanged();
     }

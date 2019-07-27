@@ -27,6 +27,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements IService {
     private RecyclerView recyclerView;
     private TrackAdapter trackAdapter;
+    private ExpandableAdapter adapter;
     private ArrayList<Course> courses = new ArrayList<>();
     private ArrayList<Track> tracks = new ArrayList<>();
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements IService {
                 new Instructor("1", "Jhon", "k", "as", "asas"));
         courses.add(c);
         courses.add(c);
-        Track t = new Track("Computer", courses);
+        Track t = new Track("1", "Computer", courses);
         tracks.add(t);
     }
 
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements IService {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView = findViewById(R.id.RecyclerViewMainActivity);
         recyclerView.setLayoutManager(mLayoutManager);
-        ExpandableAdapter adapter = new ExpandableAdapter(tracks);
+        adapter = new ExpandableAdapter(this, tracks);
         recyclerView.setAdapter(adapter);
     }
 
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements IService {
 
     @Override
     public void onTaskCompleted(List objects) {
-
+        adapter.refreshParent();
+        adapter.refreshChild();
     }
 }

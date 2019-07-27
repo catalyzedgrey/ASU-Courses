@@ -1,11 +1,8 @@
 package com.asu.asucourses.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
 
-public class Course implements Parcelable {
+public class Course {
 
     @SerializedName("id")
     private String courseId;
@@ -77,31 +74,4 @@ public class Course implements Parcelable {
         this.instructor = instructor;
     }
 
-
-    public static final Creator<Course> CREATOR = new Creator<Course>() {
-        @Override
-        public Course createFromParcel(Parcel source) {
-            return new Course(source);
-        }
-
-        @Override
-        public Course[] newArray(int size) {
-            return new Course[size];
-        }
-    };
-
-    public Course(Parcel in) {
-        this.courseName = in.readString();
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(courseName);
-
-    }
 }

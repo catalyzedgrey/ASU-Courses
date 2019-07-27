@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.asu.asucourses.R;
 import com.asu.asucourses.activities.CoursesDetailsActivity;
 import com.asu.asucourses.models.Course;
-import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
+import com.bignerdranch.expandablerecyclerview.ChildViewHolder;
 
 public class CourseViewHolder extends ChildViewHolder implements View.OnClickListener {
 
