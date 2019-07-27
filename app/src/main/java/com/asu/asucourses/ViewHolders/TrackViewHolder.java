@@ -48,12 +48,12 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
     }
 
     @Override
-    public void onTaskCompleted(List CourseList) {
-        Course c = new Course("1", "Physics", "M", (float) 2.0, "5",
-                new Instructor("1", "Jhon", "k", "as", "asas"));
-        CourseList.add(c);
-        CourseList.add(c);
-        courseAdapter.refreshCourseAdapter(CourseList);
+    public void onTaskCompleted(List courseList) {
+//        Course c = new Course("1", "Physics", "M", (float) 2.0, "5",
+//                new Instructor("1", "Jhon", "k", "as", "asas"));
+//        CourseList.add(c);
+//        CourseList.add(c);
+        courseAdapter.refreshCourseAdapter(courseList);
         courseAdapter.notifyItemChanged(this.getOldPosition());
     }
 }

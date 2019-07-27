@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.asu.asucourses.R;
 import com.asu.asucourses.activities.CoursesDetailsActivity;
 import com.asu.asucourses.models.Course;
+import com.asu.asucourses.utils.Constants;
 import com.bignerdranch.expandablerecyclerview.ChildViewHolder;
 import com.google.gson.Gson;
 
@@ -27,9 +28,9 @@ public class CourseViewHolder extends ChildViewHolder implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        String courseJson = (new Gson()).toJson(this.course);
         Intent i = new Intent(v.getContext(), CoursesDetailsActivity.class);
-        i.putExtra("course", courseJson);
+        String courseJson = Constants.serializeCourseToJson(course);
+        i.putExtra("courseJson", courseJson);
         v.getContext().startActivity(i);
     }
 }

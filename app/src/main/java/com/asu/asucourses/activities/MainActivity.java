@@ -28,14 +28,11 @@ import java.util.List;
 
 //import com.asu.asucourses.interfaces.OnItemClickListener;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, IService {
+public class MainActivity extends AppCompatActivity implements IService {
     private RecyclerView recyclerView;
     private TrackAdapter trackAdapter;
     private CourseAdapter courseAdapter;
     //    private ExpandableAdapter adapter;
-    private ArrayList<Course> courses = new ArrayList<>();
-    private ArrayList<Track> tracks = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +47,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void prepareData() {
         new TrackService(this).execute(Constants.trackUrl);
-        Course c = new Course("1", "Physics", "M", (float) 2.0, "5",
-                new Instructor("1", "Jhon", "k", "as", "asas"));
-        courses.add(c);
-        courses.add(c);
-        Track t = new Track("1", "Computer");
-        tracks.add(t);
+//        Course c = new Course("1", "Physics", "M", (float) 2.0, "5",
+//                new Instructor("1", "Jhon", "k", "as", "asas"));
+//        courses.add(c);
+//        courses.add(c);
+//        Track t = new Track("1", "Computer");
+//        tracks.add(t);
     }
 
     private void init() {
@@ -102,14 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onTaskCompleted(List objects) {
-        trackAdapter.refreshTrackAdapter(tracks);
+        trackAdapter.refreshTrackAdapter(objects);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getTag().toString().equals("main_tv")) {
-
-
-        }
-    }
 }

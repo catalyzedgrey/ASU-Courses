@@ -109,8 +109,8 @@ public class CoursesDetailsActivity extends AppCompatActivity {
 
     public boolean CheckGPA(Course course) {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        final String restoredText = prefs.getString(USER_GPA, null);
-        if (Float.parseFloat(USER_GPA) < course.getMinGPA()) {
+        final String restoredText = prefs.getString(USER_GPA, "0");
+        if (Float.parseFloat(restoredText) < course.getMinGPA()) {
             return true;
         }
         return false;
