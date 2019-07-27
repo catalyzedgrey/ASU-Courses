@@ -1,17 +1,26 @@
 package com.asu.asucourses.models;
 
 import com.google.gson.annotations.SerializedName;
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
-public class Track {
+import java.util.List;
+
+public class Track extends ExpandableGroup<Course> {
 
     @SerializedName("id")
     private String trackId;
     @SerializedName("name")
     private String trackName;
 
-    public Track(String trackId, String trackName) {
+    public Track(String trackId, String title, List<Course> items) {
+        super(title, items);
         this.trackId = trackId;
-        this.trackName = trackName;
+        this.trackName = title;
+    }
+
+    public Track(String title, List<Course> items) {
+        super(title, items);
+        trackName = title;
     }
 
     public String getTrackId() {
