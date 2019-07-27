@@ -32,7 +32,6 @@ public class CoursesListActivity extends AppCompatActivity implements IService {
         recyclerView = findViewById(R.id.recycler_view);
         adapter = new CourseAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         recyclerView.setAdapter(adapter);
     }
 

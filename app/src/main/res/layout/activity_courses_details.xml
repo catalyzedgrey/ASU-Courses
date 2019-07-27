@@ -106,7 +106,7 @@
         android:text='""'
         android:textColor="@color/cardview_dark_background"
         android:verticalScrollbarPosition="right"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/enrollBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,6 +122,7 @@
         android:layout_marginBottom="17dp"
         android:text="MinGPA"
         android:textColor="@color/colorAccent"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
