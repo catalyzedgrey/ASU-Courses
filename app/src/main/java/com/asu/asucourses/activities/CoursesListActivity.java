@@ -23,7 +23,6 @@ public class CoursesListActivity extends AppCompatActivity implements IService {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_list);
-
         initViews();
         retrieveCourses();
     }
