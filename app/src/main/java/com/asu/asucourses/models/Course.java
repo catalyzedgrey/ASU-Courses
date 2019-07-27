@@ -91,7 +91,7 @@ public class Course implements Parcelable {
     };
 
     public Course(Parcel in) {
-        this.courseId = in.readString();
+        this.courseName = in.readString();
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Course implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(courseId);
+        dest.writeString(courseName);
 
     }
 }

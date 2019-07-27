@@ -12,10 +12,11 @@ public class Track extends ExpandableGroup<Course> {
     @SerializedName("name")
     private String trackName;
 
-//    public Track(String trackId, String trackName) {
-//        this.trackId = trackId;
-//        this.trackName = trackName;
-//    }
+    public Track(String trackId, String title, List<Course> items) {
+        super(title, items);
+        this.trackId = trackId;
+        this.trackName = title;
+    }
 
     public Track(String title, List<Course> items) {
         super(title, items);
