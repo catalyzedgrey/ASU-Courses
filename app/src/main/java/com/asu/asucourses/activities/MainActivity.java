@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.asu.asucourses.R;
-import com.asu.asucourses.adapters.ExpandableAdapter;
+import com.asu.asucourses.adapters.CourseAdapter;
 import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.interfaces.IService;
 import com.asu.asucourses.models.Course;
@@ -22,12 +24,15 @@ import com.asu.asucourses.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
+//import com.asu.asucourses.adapters.ExpandableAdapter;
+
 //import com.asu.asucourses.interfaces.OnItemClickListener;
 
-public class MainActivity extends AppCompatActivity implements IService {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, IService {
     private RecyclerView recyclerView;
     private TrackAdapter trackAdapter;
-    private ExpandableAdapter adapter;
+    private CourseAdapter courseAdapter;
+    //    private ExpandableAdapter adapter;
     private ArrayList<Course> courses = new ArrayList<>();
     private ArrayList<Track> tracks = new ArrayList<>();
 
@@ -49,16 +54,18 @@ public class MainActivity extends AppCompatActivity implements IService {
                 new Instructor("1", "Jhon", "k", "as", "asas"));
         courses.add(c);
         courses.add(c);
-        Track t = new Track("1", "Computer", courses);
+        Track t = new Track("1", "Computer");
         tracks.add(t);
     }
 
     private void init() {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView = findViewById(R.id.RecyclerViewMainActivity);
+        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         recyclerView.setLayoutManager(mLayoutManager);
-        adapter = new ExpandableAdapter(this, tracks);
-        recyclerView.setAdapter(adapter);
+        trackAdapter = new TrackAdapter();
+        recyclerView.setAdapter(trackAdapter);
+        recyclerView.setHasFixedSize(true);
     }
 
 
@@ -95,7 +102,14 @@ public class MainActivity extends AppCompatActivity implements IService {
 
     @Override
     public void onTaskCompleted(List objects) {
-        adapter.refreshParent();
-        adapter.refreshChild();
+        trackAdapter.refreshTrackAdapter(tracks);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().toString().equals("main_tv")) {
+
+
+        }
     }
 }

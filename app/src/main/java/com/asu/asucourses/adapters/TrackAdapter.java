@@ -1,20 +1,22 @@
 package com.asu.asucourses.adapters;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.asu.asucourses.R;
-import com.asu.asucourses.itemviews.TrackItem;
+import com.asu.asucourses.ViewHolders.TrackViewHolder;
 import com.asu.asucourses.models.Track;
 
 import java.util.List;
 
 //import com.asu.asucourses.interfaces.OnItemClickListener;
 
-public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
+public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
     private List<Track> tracks;
 //    private OnItemClickListener listener;
 
@@ -27,16 +29,22 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackItem> {
 
     @NonNull
     @Override
-    public TrackItem onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public TrackViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_track_item, viewGroup, false);
-        return new TrackItem(itemView);
+        return new TrackViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TrackItem trackItem, int i) {
-//        trackItem.bindTrack(tracks.get(i), listener);
-        trackItem.bindTrack(tracks.get(i));
+    public void onBindViewHolder(@NonNull TrackViewHolder trackViewHolder, int i) {
+        CourseAdapter courseAdapter = new CourseAdapter();
+        RecyclerView recyclerView = trackViewHolder.itemView.findViewById(R.id.subitem);
+        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+        recyclerView.setAdapter(courseAdapter);
+        trackViewHolder.bind(tracks.get(i), courseAdapter);
+
     }
+
 
     @Override
     public int getItemCount() {

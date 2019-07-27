@@ -1,33 +1,18 @@
 package com.asu.asucourses.models;
 
-import com.bignerdranch.expandablerecyclerview.model.Parent;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class Track implements Parent<Course> {
+public class Track {
 
     @SerializedName("id")
     private String trackId;
     @SerializedName("name")
     private String trackName;
+    private boolean isExpanded = true;
 
-    private List<Course> courses;
-
-    public Track(String trackId, String trackName, List<Course> courses) {
+    public Track(String trackId, String trackName) {
         this.trackId = trackId;
         this.trackName = trackName;
-        this.courses = courses;
-    }
-
-    @Override
-    public List<Course> getChildList() {
-        return courses;
-    }
-
-    @Override
-    public boolean isInitiallyExpanded() {
-        return false;
     }
 
     public String getTrackId() {
@@ -44,5 +29,13 @@ public class Track implements Parent<Course> {
 
     public void setTrackName(String trackName) {
         this.trackName = trackName;
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean isExpanded) {
+        this.isExpanded = isExpanded;
     }
 }

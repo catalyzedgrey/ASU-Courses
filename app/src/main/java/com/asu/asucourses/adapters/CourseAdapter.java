@@ -7,13 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.asu.asucourses.R;
+import com.asu.asucourses.ViewHolders.CourseViewHolder;
 import com.asu.asucourses.models.Course;
-import com.asu.asucourses.itemviews.CourseItem;
-//import com.asu.asucourses.interfaces.OnItemClickListener;
 
 import java.util.List;
 
-public class CourseAdapter  extends RecyclerView.Adapter<CourseItem>  {
+//import com.asu.asucourses.interfaces.OnItemClickListener;
+
+public class CourseAdapter extends RecyclerView.Adapter<CourseViewHolder> {
     private List<Course> courses;
 //    private OnItemClickListener listener;
 
@@ -26,15 +27,14 @@ public class CourseAdapter  extends RecyclerView.Adapter<CourseItem>  {
 
     @NonNull
     @Override
-    public CourseItem onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_course_item, viewGroup, false);
-        return new CourseItem(itemView);
+        return new CourseViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseItem courseItem, int i) {
-//        courseItem.bindCourse(courses.get(i), listener);
-        courseItem.bindCourse(courses.get(i));
+    public void onBindViewHolder(@NonNull CourseViewHolder courseViewHolder, int i) {
+        courseViewHolder.bind(courses.get(i));
     }
 
     @Override
