@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.CourseAdapter;
+import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.interfaces.IService;
 import com.asu.asucourses.models.Course;
 import com.asu.asucourses.models.Instructor;
@@ -18,6 +19,7 @@ import java.util.List;
 public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, IService {
     private TextView trackTitle;
     CourseAdapter courseAdapter;
+    TrackAdapter trackAdapter;
     Track track;
     View subItem;
 
@@ -29,12 +31,13 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
     }
 
 
-    public void bind(Track track, CourseAdapter adapter) {
+    public void bind(Track track, CourseAdapter adapter, TrackAdapter trackAdapter) {
         boolean expanded = track.isExpanded();
         courseAdapter = adapter;
+        this.trackAdapter = trackAdapter;
         this.track = track;
         subItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
-        subItem.setVisibility(View.VISIBLE);
+        //subItem.setVisibility(View.VISIBLE);
         trackTitle.setText(track.getTrackName());
     }
 
@@ -44,7 +47,8 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
         boolean expanded = track.isExpanded();
         track.setExpanded(!expanded);
         subItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
-        courseAdapter.notifyItemChanged(this.getAdapterPosition());
+        trackAdapter.notifyItemChanged(this.getAdapterPosition());
+        //courseAdapter.notifyItemChanged(this.getAdapterPosition());
     }
 
     @Override
@@ -54,6 +58,6 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
 //        CourseList.add(c);
 //        CourseList.add(c);
         courseAdapter.refreshCourseAdapter(courseList);
-        courseAdapter.notifyItemChanged(this.getOldPosition());
+        trackAdapter.notifyItemChanged(this.getOldPosition());
     }
 }

@@ -41,7 +41,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(courseAdapter);
-        trackViewHolder.bind(tracks.get(i), courseAdapter);
+        trackViewHolder.bind(tracks.get(i), courseAdapter, this);
 
     }
 
