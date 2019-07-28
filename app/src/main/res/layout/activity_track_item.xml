@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="50sp" />
 </LinearLayout>
     </android.support.v7.widget.CardView>
 

@@ -1,6 +1,8 @@
 package com.asu.asucourses.adapters;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
@@ -18,6 +20,7 @@ import java.util.List;
 
 public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
     private List<Track> tracks;
+    Context context;
 //    private OnItemClickListener listener;
 
 //    public TrackAdapter(OnItemClickListener listener) {
@@ -31,6 +34,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
     @Override
     public TrackViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_track_item, viewGroup, false);
+        context = itemView.getContext();
         return new TrackViewHolder(itemView);
     }
 
@@ -38,6 +42,8 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
     public void onBindViewHolder(@NonNull TrackViewHolder trackViewHolder, int i) {
         CourseAdapter courseAdapter = new CourseAdapter();
         RecyclerView recyclerView = trackViewHolder.itemView.findViewById(R.id.subitem);
+        recyclerView.addItemDecoration(new DividerItemDecoration(context,
+                DividerItemDecoration.VERTICAL));
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(courseAdapter);
