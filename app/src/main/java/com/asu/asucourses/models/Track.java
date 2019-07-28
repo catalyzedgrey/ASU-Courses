@@ -8,7 +8,7 @@ public class Track {
     private String trackId;
     @SerializedName("name")
     private String trackName;
-    private boolean isExpanded = true;
+    private boolean isExpanded;
 
     public Track(String trackId, String trackName) {
         this.trackId = trackId;
