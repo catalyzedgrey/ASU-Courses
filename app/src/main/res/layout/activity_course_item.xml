@@ -24,7 +24,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/track"
+        android:fontFamily="@string/track"
         android:textAlignment="center"
         android:textSize="40sp"
 
