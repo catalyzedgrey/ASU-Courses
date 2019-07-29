@@ -34,6 +34,7 @@ public class InstructorDetailsActivity extends AppCompatActivity {
         instructorEmailTv = findViewById(R.id.email_tv);
         instructorBioTV = findViewById(R.id.bio_tv);
         circleImageView = findViewById(R.id.InstructorImage);
+
     }
 
     private Instructor getInstructorInfo() {
@@ -47,5 +48,6 @@ public class InstructorDetailsActivity extends AppCompatActivity {
         //Glide.with(this).load(instructor.getInstructorImageUrl()).into(imgView);
         Glide.with(this).load(instructor.getInstructorImageUrl()).into(circleImageView);
         instructorBioTV.setText(instructor.getBio());
+
     }
 }

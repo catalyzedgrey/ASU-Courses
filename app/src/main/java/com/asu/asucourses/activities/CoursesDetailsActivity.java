@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+
 public class CoursesDetailsActivity extends AppCompatActivity {
 
     ImageView courseImage;
