@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="10dp"
+    android:orientation="horizontal">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
 
-        android:id="@+id/CourseImage"
-        android:layout_width="191dp"
-        android:layout_height="205dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        app:civ_border_color="@color/cardview_dark_background"
-        app:civ_border_width="2dp" />
+    <!--android:id="@+id/CourseImage"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_weight="2"-->
+    <!--app:civ_border_color="@color/cardview_dark_background"-->
+    <!--app:civ_border_width="2dp" />-->
 
+    <ImageView
+        android:id="@+id/course_img"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/CourseTitletextView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_weight="3"
         android:fontFamily="@font/track"
-        android:textAlignment="center"
-        android:textSize="40sp"
-
-        />
+        android:textAlignment="viewStart"
+        android:textSize="40sp" />
 
 </LinearLayout>
