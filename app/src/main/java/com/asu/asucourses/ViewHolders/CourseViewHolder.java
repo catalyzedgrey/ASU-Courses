@@ -9,7 +9,6 @@ import com.asu.asucourses.activities.CoursesDetailsActivity;
 import com.asu.asucourses.models.Course;
 import com.asu.asucourses.utils.Constants;
 import com.bignerdranch.expandablerecyclerview.ChildViewHolder;
-import com.google.gson.Gson;
 
 public class CourseViewHolder extends ChildViewHolder implements View.OnClickListener {
     private TextView courseTitle;
@@ -17,7 +16,7 @@ public class CourseViewHolder extends ChildViewHolder implements View.OnClickLis
 
     public CourseViewHolder(View itemView) {
         super(itemView);
-        courseTitle = itemView.findViewById(R.id.itemViewCourse);
+        courseTitle = itemView.findViewById(R.id.CourseTitletextView);
         itemView.setOnClickListener(this);
     }
 

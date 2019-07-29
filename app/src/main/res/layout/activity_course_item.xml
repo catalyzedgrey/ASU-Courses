@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -19,12 +20,11 @@
 
     <TextView
         android:id="@+id/CourseTitletextView"
-        android:layout_width="200dp"
-        android:layout_height="205dp"
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/track"
         android:textAlignment="center"
         android:textSize="40sp"
 
