@@ -49,7 +49,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
             @Override
             public void onExpandListener(int position) {
                 for (int i = 0; i < tracks.size(); i++) {
-                    if (position != i && trackViewHolder.subItem != null) {
+                    if (position != i && trackViewHolder.getSubItem() != null) {
                         tracks.get(i).setExpanded(false);
                         notifyDataSetChanged();
                     }
