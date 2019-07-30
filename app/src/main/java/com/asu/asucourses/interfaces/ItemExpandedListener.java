@@ -4,5 +4,5 @@ import com.asu.asucourses.models.Course;
 import com.asu.asucourses.models.Track;
 
 public interface ItemExpandedListener {
-    public void onExpandListener(int position);
+    void onExpandListener(int position);
 }

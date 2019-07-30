@@ -24,6 +24,7 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
     private View subItem;
     private ImageView expandImgView;
     private ItemExpandedListener listener;
+    boolean expanded;
 
     public TrackViewHolder(View itemView) {
         super(itemView);
@@ -39,6 +40,8 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
         courseAdapter = adapter;
         this.trackAdapter = trackAdapter;
         this.track = track;
+        if(!track.isExpanded() && expandImgView.getRotation()!= 0)
+            expandImgView.setRotation(0);
         subItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
         trackTitle.setText(track.getTrackName());
     }
@@ -46,9 +49,11 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
     @Override
     public void onClick(View v) {
         new CoursesService(this).execute(Constants.coursesUrl);
-        boolean expanded = track.isExpanded();
+        expanded = track.isExpanded();
+        expandImgView.animate().rotation(expandImgView.getRotation()+180);
         track.setExpanded(!expanded);
         subItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
+
         listener.onExpandListener(this.getAdapterPosition());
         trackAdapter.notifyItemChanged(this.getAdapterPosition());
         //courseAdapter.notifyItemChanged(this.getAdapterPosition());
@@ -60,8 +65,8 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
 //                new Instructor("1", "Jhon", "k", "as", "asas"));
 //        CourseList.add(c);
 //        CourseList.add(c);
+
 //        expandImgView.animate().rotation(expandImgView.getRotation()+180);
-        expandImgView.animate().rotation(expandImgView.getRotation()+180);
         courseAdapter.refreshCourseAdapter(courseList);
         trackAdapter.notifyItemChanged(this.getOldPosition());
     }
@@ -73,4 +78,5 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public View getSubItem() {
         return subItem;
     }
+
 }

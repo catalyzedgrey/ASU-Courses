@@ -44,14 +44,13 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
         recyclerView.setAdapter(courseAdapter);
         trackViewHolder.bind(tracks.get(i), courseAdapter, this);
 
-
         trackViewHolder.setCustomObjectListener(new ItemExpandedListener() {
             @Override
             public void onExpandListener(int position) {
                 for (int i = 0; i < tracks.size(); i++) {
                     if (position != i && trackViewHolder.getSubItem() != null) {
                         tracks.get(i).setExpanded(false);
-                        notifyDataSetChanged();
+                        notifyItemChanged(i);
                     }
                 }
             }
