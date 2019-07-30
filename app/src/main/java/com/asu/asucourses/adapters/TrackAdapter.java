@@ -12,20 +12,15 @@ import android.view.ViewGroup;
 
 import com.asu.asucourses.R;
 import com.asu.asucourses.ViewHolders.TrackViewHolder;
+import com.asu.asucourses.interfaces.ItemExpandedListener;
 import com.asu.asucourses.models.Track;
 
 import java.util.List;
 
-//import com.asu.asucourses.interfaces.OnItemClickListener;
 
 public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
-    private List<Track> tracks;
+    public List<Track> tracks;
     Context context;
-//    private OnItemClickListener listener;
-
-//    public TrackAdapter(OnItemClickListener listener) {
-//        this.listener = listener;
-//    }
 
     public TrackAdapter() {
     }
@@ -39,7 +34,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TrackViewHolder trackViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final TrackViewHolder trackViewHolder, int i) {
         CourseAdapter courseAdapter = new CourseAdapter();
         RecyclerView recyclerView = trackViewHolder.itemView.findViewById(R.id.subitem);
         recyclerView.addItemDecoration(new DividerItemDecoration(context,
@@ -49,6 +44,18 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackViewHolder> {
         recyclerView.setAdapter(courseAdapter);
         trackViewHolder.bind(tracks.get(i), courseAdapter, this);
 
+
+        trackViewHolder.setCustomObjectListener(new ItemExpandedListener() {
+            @Override
+            public void onExpandListener(int position) {
+                for (int i = 0; i < tracks.size(); i++) {
+                    if (position != i && trackViewHolder.subItem != null) {
+                        tracks.get(i).setExpanded(false);
+                        notifyDataSetChanged();
+                    }
+                }
+            }
+        });
     }
 
 

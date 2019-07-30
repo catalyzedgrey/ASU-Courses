@@ -8,8 +8,7 @@ import com.asu.asucourses.R;
 import com.asu.asucourses.adapters.CourseAdapter;
 import com.asu.asucourses.adapters.TrackAdapter;
 import com.asu.asucourses.interfaces.IService;
-import com.asu.asucourses.models.Course;
-import com.asu.asucourses.models.Instructor;
+import com.asu.asucourses.interfaces.ItemExpandedListener;
 import com.asu.asucourses.models.Track;
 import com.asu.asucourses.services.CoursesService;
 import com.asu.asucourses.utils.Constants;
@@ -18,10 +17,13 @@ import java.util.List;
 
 public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, IService {
     private TextView trackTitle;
-    CourseAdapter courseAdapter;
-    TrackAdapter trackAdapter;
-    Track track;
-    View subItem;
+    private CourseAdapter courseAdapter;
+    private TrackAdapter trackAdapter;
+    private Track track;
+    public View subItem;
+
+
+    private ItemExpandedListener listener;
 
     public TrackViewHolder(View itemView) {
         super(itemView);
@@ -37,7 +39,6 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
         this.trackAdapter = trackAdapter;
         this.track = track;
         subItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
-        //subItem.setVisibility(View.VISIBLE);
         trackTitle.setText(track.getTrackName());
     }
 
@@ -47,7 +48,10 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
         boolean expanded = track.isExpanded();
         track.setExpanded(!expanded);
         subItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
+
+        listener.onExpandListener(this.getAdapterPosition());
         trackAdapter.notifyItemChanged(this.getAdapterPosition());
+
         //courseAdapter.notifyItemChanged(this.getAdapterPosition());
     }
 
@@ -59,5 +63,9 @@ public class TrackViewHolder extends RecyclerView.ViewHolder implements View.OnC
 //        CourseList.add(c);
         courseAdapter.refreshCourseAdapter(courseList);
         trackAdapter.notifyItemChanged(this.getOldPosition());
+    }
+
+    public void setCustomObjectListener(ItemExpandedListener listener) {
+        this.listener = listener;
     }
 }
