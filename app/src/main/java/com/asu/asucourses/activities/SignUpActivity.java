@@ -8,8 +8,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.asu.asucourses.R;
+import com.asu.asucourses.application.User;
+import com.asu.asucourses.interfaces.IService;
+import com.asu.asucourses.services.RegisterService;
+import com.asu.asucourses.utils.Constants;
 
-public class SignUpActivity extends AppCompatActivity {
+import java.util.List;
+
+public class SignUpActivity extends AppCompatActivity implements IService {
     EditText fullNameEditText,emailEditText,passwordEditText,confirmPasswordEditText,levelEditText,gpaEditText;
     Button registerBtn;
     @Override
@@ -49,6 +55,9 @@ public class SignUpActivity extends AppCompatActivity {
         if(!checkEmpty(fullName,email,password,confirmPassword,level,gpa)){
             if(validateANDverify(password,confirmPassword,level,gpa)){
                 //Todo: nshof email dh mwgod f database wla la
+                User user = new User(fullName, email, password, gpa, level);
+                String userMessage = Constants.serializeUserToJson(user);
+                new RegisterService(this).execute(Constants.registerUrl, userMessage);
             }
         }
 
@@ -110,5 +119,10 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(SignUpActivity.this,"ur level must be in range 0 to 4",Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    @Override
+    public void onTaskCompleted(List objects) {
+
     }
 }

@@ -1,5 +1,6 @@
 package com.asu.asucourses.utils;
 
+import com.asu.asucourses.application.User;
 import com.asu.asucourses.models.Course;
 import com.asu.asucourses.models.Instructor;
 import com.google.gson.Gson;
@@ -14,6 +15,15 @@ public abstract class Constants {
     public static final String coursesUrl = "http://3.80.183.111/app/api/getCourse.php";
     public static final String addCourseUrl = "http://3.80.183.111/app/api/addCourse.php";
     public static final String dropCourseUrl = "http://3.80.183.111/app/api/dropCourse.php";
+    public static final String registerUrl = "http://3.80.183.111/app/api/register.php";
+
+    public static String serializeUserToJson(User user) {
+        return (new Gson()).toJson(user);
+    }
+
+    public static User deserializeUserFromJson(String userJson) {
+        return new Gson().fromJson(userJson, User.class);
+    }
 
 
     public static String serializeCourseToJson(Course course) {

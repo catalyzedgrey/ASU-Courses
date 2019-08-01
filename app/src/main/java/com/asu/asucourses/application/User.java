@@ -2,21 +2,35 @@ package com.asu.asucourses.application;
 
 import android.app.Application;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User extends Application {
+
     private String userId;
+    @SerializedName("name")
     private String userName;
+    @SerializedName("password")
+    private String password;
+    @SerializedName("email")
     private String email;
+    @SerializedName("gpa")
     private String gpa;
+    @SerializedName("level")
     private String level;
+    @SerializedName("gender")
+    private String gender = "m";
     public static boolean isLogged = false;
 
-    public User(String userId, String username, String email, String gpa, String level) {
-        this.userId = userId;
+
+    public User(String userName, String email, String password, String gpa, String level) {
         this.userName = userName;
         this.email = email;
-        this.gpa = gpa;
+        this.password = password;
         this.level = level;
+        this.gpa = gpa;
     }
+
+
 
     public String getUserId() {
         return userId;
@@ -34,20 +48,20 @@ public class User extends Application {
         this.userName = userName;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getGpa() {
-        return gpa;
-    }
-
-    public void setGpa(String gpa) {
-        this.gpa = gpa;
     }
 
     public String getLevel() {
@@ -58,4 +72,11 @@ public class User extends Application {
         this.level = level;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 }
