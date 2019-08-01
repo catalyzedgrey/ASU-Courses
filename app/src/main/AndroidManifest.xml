@@ -18,7 +18,9 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.InstructorDetailsActivity" />
+        <activity
+            android:name=".activities.InstructorDetailsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".activities.CoursesListActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
